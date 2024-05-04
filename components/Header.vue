@@ -21,7 +21,7 @@
     </div>
     <!-- Logo -->
     <div class="navbar-center">
-      <a class="btn btn-ghost text-xl">EliteWares</a>
+      <a class="btn btn-ghost text-2xl">EliteWares</a>
     </div>
 
     <!-- 搜尋框和頭貼 -->

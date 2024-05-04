@@ -1,4 +1,5 @@
 <template>
+  
   <footer class="footer items-center p-4 bg-base-100 border border-t-accent">
     <aside class="items-center grid-flow-col">
       <svg
@@ -25,9 +26,10 @@ import PickTheme from "@/components/PickTheme";
 
 export default {
   components: {
-    PickTheme,
+    PickTheme
   },
 };
+
 </script>
 
 <style lang="scss" scoped></style>

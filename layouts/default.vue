@@ -1,22 +1,24 @@
 <script>
-import Header from "../components/Header.vue";
-import Footer from "../components/Footer.vue";
-import Sidebar from "../components/Sidebar.vue"
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+import Sidebar from "@/components/Sidebar.vue";
+import SideAdd from "@/components/SideAdd.vue";
 
 export default {
   name: "default",
-  components: { Header, Footer },
+  components: { Header, Footer, SideAdd },
 };
 </script>
 
 <template>
   <div class="drawer">
     <input id="elite-drawer" type="checkbox" class="drawer-toggle" />
-    <div class="drawer-content min-h-screen">
+    <div class="drawer-content min-h-screen static">
       <!-- Page content here -->
-      <Header class=""/>
+      <Header />
       <slot />
-      <Footer class="fixed bottom-0"/>
+      <SideAdd class="absolute bottom-32 right-10 btn btn-circle btn-primary hover:scale-150"/>
+      <Footer class="fixed bottom-0" />
     </div>
     <div class="drawer-side">
       <label
