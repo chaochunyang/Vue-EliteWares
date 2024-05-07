@@ -1,75 +1,59 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+└── 📁Vue-EliteWares
+    └── app.vue
+    └── 📁assets
+        └── .DS_Store
+        └── 📁css
+            └── main.css
+        └── 📁images
+            └── CELINE.png
+            └── CHANEL.png
+            └── FENDI.png
+            └── HERMES.png
+            └── Kan.png
+    └── 📁components
+        └── Footer.vue
+        └── Header.vue
+        └── Pagination.vue
+        └── PickTheme.vue
+        └── SideAdd.vue
+        └── Sidebar.vue
+    └── 📁layouts
+        └── default.vue
+    └── nuxt.config.ts
+    └── package.json
+    └── 📁pages
+        └── index.vue
+    └── process-env.d.ts
+    └── 📁public
+        └── favicon.ico
+    └── 📁server
+        └── 📁api
+            └── 📁inventory
+                └── addProduct.post.ts
+                └── deleteProduct.delete.ts
+                └── editProduct.put.ts
+                └── getAllProduct.get.ts
+            └── 📁transaction
+                └── addTrans.post.ts
+                └── deleteTrans.delete.ts
+                └── editTrans.put.ts
+                └── getAllTrans.get.ts
+            └── 📁withdrawHistory
+                └── addWithdraw.post.ts
+                └── deleteWithdraw.delete.ts
+                └── editWithdraw.put.ts
+                └── getAllWithdraw.get.ts
+        └── 📁db
+            └── index.ts
+        └── index.ts
+        └── 📁models
+            └── inventory.ts
+            └── transaction.ts
+            └── withdrawHistory.ts
+        └── tsconfig.json
+        ├── util
+    └── tailwind.config.js
+    └── tsconfig.json
+    └── yarn.lock
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
