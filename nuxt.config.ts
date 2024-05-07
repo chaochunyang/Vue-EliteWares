@@ -14,4 +14,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  nitro:{
+    plugins: [
+      '@/server/index.ts'
+    ]
+  },
 });
