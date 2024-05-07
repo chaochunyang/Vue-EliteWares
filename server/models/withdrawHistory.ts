@@ -1,7 +1,7 @@
 import { Model, DataTypes } from "sequelize";
 import { Sequelize } from "sequelize";
 
-interface InventoryAttributes {
+interface WithdrawAttributes {
   ProductUUID?: string;
   ProductID: string;
   Brand: string;
@@ -12,23 +12,24 @@ interface InventoryAttributes {
   Condition: string;
   LastCheckTime?: Date;
   StorageDate: Date;
-  WithdrawDate?: Date;
+  WithdrawDate: Date;
   RecordDate: Date;
   ModifiedDate: Date;
-  RecordMan: string;
-  ModifiedMan: string;
+  WithdrawMan: string;
   ProductStatus: string;
-  InPrice: string;
-  InCost: string;
-  InNumber: string;
+  TransactionCode: string;
+  OutPrice: string;
+  OutCost: string;
+  OutNumber: string;
   PicBinaryCode: Buffer;
   Remark?: string;
 }
 
-interface InventoryInstance extends Model<InventoryAttributes>, InventoryAttributes {}
+interface WithdrawInstance extends Model<WithdrawAttributes>, WithdrawAttributes {}
 
-const InventoryModel = (sequelize: Sequelize) => {
-  const model =  sequelize.define<InventoryInstance>("Inventory", {
+const WithdrawModel = (sequelize: Sequelize) => {
+
+  const model =  sequelize.define<WithdrawInstance>("WithdrawHistory", {
     ProductUUID: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -83,11 +84,7 @@ const InventoryModel = (sequelize: Sequelize) => {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    RecordMan: {
-      type: DataTypes.STRING(30),
-      allowNull: false,
-    },
-    ModifiedMan: {
+    WithdrawMan: {
       type: DataTypes.STRING(30),
       allowNull: false,
     },
@@ -95,15 +92,19 @@ const InventoryModel = (sequelize: Sequelize) => {
       type: DataTypes.STRING(30),
       allowNull: false,
     },
-    InPrice: {
+    TransactionCode: {
       type: DataTypes.STRING(30),
       allowNull: false,
     },
-    InCost: {
+    OutPrice: {
       type: DataTypes.STRING(30),
       allowNull: false,
     },
-    InNumber: {
+    OutCost: {
+      type: DataTypes.STRING(30),
+      allowNull: false,
+    },
+    OutNumber: {
       type: DataTypes.STRING(30),
       allowNull: false,
     },
@@ -120,4 +121,4 @@ const InventoryModel = (sequelize: Sequelize) => {
   return model
 };
 
-export { InventoryAttributes, InventoryInstance, InventoryModel };
+export { WithdrawAttributes, WithdrawInstance, WithdrawModel };

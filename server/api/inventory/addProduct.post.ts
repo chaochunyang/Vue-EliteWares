@@ -1,41 +1,41 @@
 import { readBody } from "h3";
-import InventoryModel from "@/server/models/inventory";
+import { InventoryModel, InventoryAttributes } from "@/server/models/inventory";
+import sequelize from "@/server/db";
 
-async function AddProduct(body: object) {
-  const Inventory = await InventoryModel();
+const AddProduct = async (body: InventoryAttributes) => {
+  const Inventory = await InventoryModel(sequelize);
   const data = await Inventory.create({
-    ProductID: "1234",
-    Brand: "123",
-    Name: "123",
-    // InnerCode:
-    Materials: "123",
-    Color: "123",
-    Condition: "123",
-    LastCheckTime: Date.parse("2024/05/07 15:42:00"),
-    StorageDate: Date.now(),
-    WithdrawDate: Date.now(),
-    RecordDate: Date.now(),
-    ModifiedDate: Date.now(),
-    RecordMan: "123",
-    ModifiedMan: "123",
-    ProductStatus: "123",
-    InPrice: "123",
-    InCost: "123",
-    InNumber: "123",
-    PicBinaryCode: "123",
-    // Remark:
+    ProductID: body.ProductID,
+    Brand: body.Brand,
+    Name: body.Name,
+    InnerCode: body.InnerCode,
+    Materials: body.Materials,
+    Color: body.Color,
+    Condition: body.Condition,
+    LastCheckTime: body.LastCheckTime,
+    StorageDate: body.StorageDate,
+    WithdrawDate: body.WithdrawDate,
+    RecordDate: body.RecordDate,
+    ModifiedDate: body.ModifiedDate,
+    RecordMan: body.RecordMan,
+    ModifiedMan: body.ModifiedMan,
+    ProductStatus: body.ProductStatus,
+    InPrice: body.InPrice,
+    InCost: body.InCost,
+    InNumber: body.InNumber,
+    PicBinaryCode: body.PicBinaryCode,
+    Remark: body.Remark,
   });
   return data;
-}
+};
 
 export default defineEventHandler(async (event) => {
   try {
     const body = await readBody(event);
-    const data = await AddProduct(body);
+    const data = await AddProduct(body as InventoryAttributes);
     return data;
   } catch (error) {
     console.error("Error in event handler:", error);
-
     return { error: "no return data!" };
   }
 });

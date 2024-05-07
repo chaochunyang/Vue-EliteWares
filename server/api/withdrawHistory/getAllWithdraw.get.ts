@@ -1,9 +1,9 @@
-import { InventoryModel } from "@/server/models/inventory";
+import { WithdrawModel } from "@/server/models/withdrawHistory";
 import sequelize from "@/server/db"
 
 async function FindAllData() {
-  const Inventory = await InventoryModel(sequelize);
-  const data = await Inventory.findAll();
+  const WithdrawHistory = await WithdrawModel(sequelize);
+  const data = await WithdrawHistory.findAll();
   return data
 }
 
@@ -13,7 +13,6 @@ export default defineEventHandler(async (event) => {
       return data;
     } catch (error) {
       console.error("Error in event handler:", error);
-      
       return { error: "no return data!" };
     }
   });
